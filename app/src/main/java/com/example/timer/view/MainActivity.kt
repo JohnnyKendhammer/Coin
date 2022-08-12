@@ -10,8 +10,6 @@ import com.example.timer.adapter.CoinsAdapter
 import com.example.timer.viewmodel.CoinsViewModel
 import kotlinx.android.synthetic.main.activity_main.*
 
-// https://api.coinpaprika.com/v1/coins
-
 class MainActivity : AppCompatActivity() {
     private lateinit var viewModel: CoinsViewModel
     private val coinsAdapter = CoinsAdapter(arrayListOf())
@@ -31,11 +29,10 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun observeViewModel() {
-        viewModel.coins.observe(this, Observer { coins ->
+        viewModel.coins.observe(this) { coins ->
             coins.let {
                 coinsAdapter.updateCoins(it)
             }
-
-        })
+        }
     }
 }

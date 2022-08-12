@@ -14,7 +14,7 @@ import retrofit2.converter.gson.GsonConverterFactory
 class ApiModule {
 
     @Provides
-    fun provideCoinsApi() =
+    fun provideCoinsApi(): CoinsApi =
         Retrofit.Builder()
             .baseUrl(Constants.BASE_URL)
             .addConverterFactory(GsonConverterFactory.create())
